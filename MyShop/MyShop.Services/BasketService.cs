@@ -100,6 +100,7 @@ namespace MyShop.Services
                 basket.BasketItems.Remove(item);
                 basketContext.Commit();
             }
+
         }
 
         public List<BasketItemViewModel> GetBasketItems(HttpContextBase httpContext)
@@ -112,7 +113,7 @@ namespace MyShop.Services
                               join p in productContext.Collection() on b.ProductId equals p.Id
                               select new BasketItemViewModel()
                               {
-                                  Id = b.BasketId,
+                                  Id = b.Id,
                                   Quantity = b.Quantity,
                                   ProductName = p.Name,
                                   Price = p.Price,
